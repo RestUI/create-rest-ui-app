@@ -37,6 +37,10 @@ module.exports = function(
   const appPackage = require(path.join(appPath, 'package.json'));
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
 
+  if (appPackage.dependencies) {
+    appPackage.dependencies = Object.assign({}, appPackage.dependencies, { 'rest-ui': '^1.0.0' })
+  }
+
   // Copy over some of the devDependencies
   appPackage.dependencies = appPackage.dependencies || {};
   appPackage.devDependencies = appPackage.devDependencies || {};

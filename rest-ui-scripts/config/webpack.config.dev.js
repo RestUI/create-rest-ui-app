@@ -18,6 +18,7 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const path = require('path');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -53,8 +54,6 @@ module.exports = {
     require.resolve('react-dev-utils/webpackHotDevClient'),
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
-    // Errors should be considered fatal in development
-    require.resolve('react-dev-utils/crashOverlay'),
     // Finally, this is your app's code:
     paths.appIndexJs,
     // We include the app code last so that if there is a runtime error during
@@ -88,6 +87,7 @@ module.exports = {
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
+      'react': path.resolve('./node_modules/react'),
       'react-native': 'react-native-web',
     },
   },
