@@ -3,32 +3,29 @@ import React from 'react';
 import { Admin, Resource, englishMessages, resolveBrowserLocale } from 'rest-ui';
 import { Delete } from 'rest-ui/lib/mui';
 
-import jsonRestClient from 'aor-json-rest-client';
-import frenchMessages from 'aor-language-french';
+import Posts from './resources/posts';
+import Comments from './resources/comments';
 
-import addUploadFeature from './utils/addUploadFeature';
+//Use this client for test purpose only
+import createFakeJsonClient from './utils/mock/createFakeJsonClient';
+import fakeData from './utils/mock/data';
 
-import { PostList, PostCreate, PostEdit, PostShow, PostIcon } from './resources/posts';
-import { CommentList, CommentEdit, CommentCreate, CommentIcon } from './resources/comments';
-
-import data from './utils/data';
 import * as customMessages from './i18n';
 
-const restClient = jsonRestClient(data, true);
-const uploadCapableClient = addUploadFeature(restClient);
-const delayedRestClient = (type, resource, params) => new Promise(resolve => setTimeout(() => resolve(uploadCapableClient(type, resource, params)), 1000));
 
 export default class App extends React.Component {
     render () {
         const messages = {
-            fr: { ...frenchMessages, ...customMessages.fr },
-            en: { ...englishMessages, ...customMessages.en },
+            en: {
+                ...englishMessages,
+                ...customMessages.en
+            }
         };
 
         return (
-            <Admin restClient={delayedRestClient} title="Example Admin" locale={resolveBrowserLocale()} messages={messages}>
-                <Resource name="posts" list={PostList} create={PostCreate} edit={PostEdit} show={PostShow} remove={Delete} icon={PostIcon} />
-                <Resource name="comments" list={CommentList} create={CommentCreate} edit={CommentEdit} remove={Delete} icon={CommentIcon} />
+            <Admin restClient={createFakeJsonClient(fakeData)} locale={resolveBrowserLocale()} title="Rest UI Admin" messages={messages}>
+                <Resource name="posts" list={Posts.List} create={Posts.Create} edit={Posts.Edit} show={Posts.Show} remove={Delete}/>
+                <Resource name="comments" list={Comments.List} create={Comments.Create} edit={Comments.Edit} remove={Delete}/>
             </Admin>
         )
     }

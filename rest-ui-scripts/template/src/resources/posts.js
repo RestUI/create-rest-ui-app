@@ -34,7 +34,6 @@ import RichTextInput from 'aor-rich-text-input';
 import { translate } from 'rest-ui';
 import Chip from 'material-ui/Chip';
 export PostIcon from 'material-ui/svg-icons/action/book';
-import { Link } from 'react-router';
 
 const QuickFilter = translate(({ label, translate }) => <Chip style={{ marginBottom: 8 }}>{translate(label)}</Chip>);
 
@@ -47,7 +46,8 @@ const PostFilter = ({ ...props }) => (
 );
 
 const titleFieldStyle = { maxWidth: '20em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' };
-export const PostList = ({ ...props }) => (
+
+const PostList = ({ ...props }) => (
     <List {...props} filters={<PostFilter />} sort={{ field: 'published_at', order: 'DESC' }}>
         <Responsive
             small={
@@ -76,7 +76,7 @@ const PostTitle = translate(({ record, translate }) => {
     return <span>{record ? translate('post.edit.title', { title: record.title }) : ''}</span>;
 });
 
-export const PostCreate = ({ ...props }) => (
+const PostCreate = ({ ...props }) => (
     <Create {...props}>
         <SimpleForm defaultValue={{ average_note: 0 }} validation={(values) => {
             const errors = {};
@@ -103,7 +103,7 @@ export const PostCreate = ({ ...props }) => (
     </Create>
 );
 
-export const PostEdit = ({ ...props }) => (
+const PostEdit = ({ ...props }) => (
     <Edit title={<PostTitle />} {...props}>
         <TabbedForm defaultValue={{ average_note: 0 }}>
             <FormTab label="post.form.summary">
@@ -146,7 +146,7 @@ export const PostEdit = ({ ...props }) => (
     </Edit>
 );
 
-export const PostShow = ({ ...props }) => (
+const PostShow = ({ ...props }) => (
     <Show title={<PostTitle />} {...props}>
         <SimpleShowLayout>
             <TextField source="id" />
@@ -167,3 +167,10 @@ export const PostShow = ({ ...props }) => (
         </SimpleShowLayout>
     </Show>
 );
+
+export default {
+    Create: PostCreate,
+    Edit: PostEdit,
+    Show: PostShow,
+    List: PostList
+};

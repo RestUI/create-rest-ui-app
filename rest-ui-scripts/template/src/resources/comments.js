@@ -104,13 +104,13 @@ const CommentMobileList = (props) => (
     />
 );
 
-export const CommentList = ({ ...props }) => (
+const CommentList = ({ ...props }) => (
     <List {...props} perPage={6} filters={<CommentFilter />} pagination={<CommentPagination />}>
         <Responsive small={<CommentMobileList />} medium={<CommentGrid />} />
     </List>
 );
 
-export const CommentEdit = ({ ...props }) => (
+const CommentEdit = ({ ...props }) => (
     <Edit {...props}>
         <SimpleForm>
             <DisabledInput source="id" />
@@ -124,7 +124,7 @@ export const CommentEdit = ({ ...props }) => (
     </Edit>
 );
 
-export const CommentCreate = ({ ...props }) => (
+const CommentCreate = ({ ...props }) => (
     <Create {...props} defaultValues={{ created_at: new Date() }}>
         <SimpleForm>
             <ReferenceInput source="post_id" reference="posts" allowEmpty validation={{ required: true }}>
@@ -135,3 +135,9 @@ export const CommentCreate = ({ ...props }) => (
         </SimpleForm>
     </Create>
 );
+
+export default {
+    Create: CommentCreate,
+    Edit: CommentEdit,
+    List: CommentList
+};
