@@ -37,16 +37,6 @@ module.exports = function(
   const appPackage = require(path.join(appPath, 'package.json'));
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
 
-  if (appPackage.dependencies) {
-    const extraDependencies = {
-        'rest-ui': '^1.0.0',
-        'aor-json-rest-client': '^2.0.0',
-        'aor-rich-text-input': '^1.0.1'
-    }
-    
-    appPackage.dependencies = Object.assign({}, appPackage.dependencies, extraDependencies);
-  }
-
   // Copy over some of the devDependencies
   appPackage.dependencies = appPackage.dependencies || {};
   appPackage.devDependencies = appPackage.devDependencies || {};
