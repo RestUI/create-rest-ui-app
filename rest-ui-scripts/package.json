@@ -1,6 +1,6 @@
 {
   "name": "rest-ui-scripts",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Configuration and scripts for Create Rest UI App.",
   "repository": "RestUI/create-rest-ui-app",
   "license": "BSD-3-Clause",

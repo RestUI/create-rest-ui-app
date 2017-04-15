@@ -41,7 +41,6 @@ module.exports = function(
     const extraDependencies = {
         'rest-ui': '^1.0.0',
         'aor-json-rest-client': '^2.0.0',
-        'aor-language-french': '^1.7.0',
         'aor-rich-text-input': '^1.0.1'
     }
     
@@ -117,7 +116,7 @@ module.exports = function(
     args = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
 
-  args.push('react', 'react-dom', 'rest-ui', 'aor-json-rest-client', 'aor-language-french', 'aor-rich-text-input');
+  args.concat(['react', 'react-dom', 'rest-ui', 'aor-json-rest-client', 'aor-rich-text-input']);
 
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(

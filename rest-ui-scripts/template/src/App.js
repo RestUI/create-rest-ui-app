@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { Admin, Resource, englishMessages, resolveBrowserLocale } from 'rest-ui';
 import { Delete } from 'rest-ui/lib/mui';
@@ -13,7 +13,7 @@ import fakeData from './utils/mock/data';
 import * as customMessages from './i18n';
 
 
-export default class App extends React.Component {
+export default class App extends Component {
     render () {
         const messages = {
             en: {

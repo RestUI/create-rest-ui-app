@@ -27,7 +27,6 @@ import FlatButton from 'material-ui/FlatButton';
 import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
 import ChevronLeft from 'material-ui/svg-icons/navigation/chevron-left';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
-export CommentIcon from 'material-ui/svg-icons/communication/chat-bubble';
 
 const CommentFilter = ({ ...props }) => (
     <Filter {...props}>
