@@ -106,7 +106,7 @@ module.exports = function(
     args = ['install', '--save', verbose && '--verbose'].filter(e => e);
   }
 
-  args.concat(['react', 'react-dom', 'rest-ui', 'aor-json-rest-client', 'aor-rich-text-input']);
+  args.concat(['react', 'react-dom']);
 
   // Install additional template dependencies, if present
   const templateDependenciesPath = path.join(
