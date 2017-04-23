@@ -101,7 +101,7 @@ module.exports = function createWebpackCompiler(config, onReadyCallback) {
         console.log();
       });
       // Teach some ESLint tricks.
-      console.log('You may use special comments to disable some warnings.');
+      console.log('You may use special Comments to disable some warnings.');
       console.log(
         'Use ' +
           chalk.yellow('// eslint-disable-next-line') +

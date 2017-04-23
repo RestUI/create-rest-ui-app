@@ -1,12 +1,12 @@
-export const messages = {
+export default {
     resources: {
         posts: {
-            name: 'Post |||| Posts',
+            name: 'Post |||| Post',
             fields: {
                 allow_comments: 'Allo comments?',
                 average_note: 'Average note',
                 body: 'Body',
-                comments: 'Comments',
+                comments: 'Comment',
                 commentable: 'Commentable',
                 created_at: 'Created at',
                 notifications: 'Notifications recipients',
@@ -20,11 +20,11 @@ export const messages = {
             },
         },
         comments: {
-            name: 'Comment |||| Comments',
+            name: 'Comment |||| Comment',
             fields: {
                 body: 'Body',
                 created_at: 'Created at',
-                post_id: 'Posts',
+                post_id: 'Post',
                 author: {
                     name: 'Author',
                 },
@@ -39,7 +39,7 @@ export const messages = {
             summary: 'Summary',
             body: 'Body',
             miscellaneous: 'Miscellaneous',
-            comments: 'Comments',
+            comments: 'Comment',
         },
         edit: {
             title: 'Post "%{title}"',
@@ -51,5 +51,3 @@ export const messages = {
         },
     },
 };
-
-export default messages;

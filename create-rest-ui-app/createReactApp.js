@@ -214,7 +214,7 @@ function install(useYarn, dependencies, verbose, isOnline) {
 
 function run(root, appName, version, verbose, originalDirectory, template) {
   const packageToInstall = getInstallPackage(version);
-  const allDependencies = ['react', 'react-dom', 'rest-ui', 'aor-json-rest-client', 'aor-rich-text-input', packageToInstall];
+  const allDependencies = ['react', 'react-dom', 'rest-ui', 'aor-json-rest-client', 'aor-rich-text-input', 'react-tap-event-plugin', packageToInstall];
 
   console.log('Installing packages. This might take a couple minutes.');
 
